@@ -56,7 +56,7 @@
 		<!--HTML文档解析-->
 		<jsoup.version>1.12.1</jsoup.version>
 		<!--文件上传-->
-		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+		<commons.fileupload.version>1.3.3</commons.fileupload.version>
 		<!--IO工具包-->
 		<commons.io.version>2.4</commons.io.version>
 		<!--JSON解析-->

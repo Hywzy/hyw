@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   <div id="content">
+
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    let href=window.location.href.split("?")[1];
+    //ajax请求
+    console.log(href);
+    $.ajax({
+        type: "POST",
+        url: "/index",
+        data: href,
+        success: function(result){
+            console.log(result);
+            //动态拼接HTML
+            let str = "";
+            for(let i=0;i<result.content.length;i++){
+                str=str+result.content[i].title+"<br />"
+
+            }
+            $("#content").html(str);
+        }
+    });
+</script>
+</body>
+</html>

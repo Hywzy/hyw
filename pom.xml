@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<modules>
+		<module>data-api-v1</module>
+		<module>data-api-v2</module>
+		<module>data-api-v3</module>
+	</modules>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.offcn</groupId>
+	<artifactId>diy</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>diy</name>
+	<description>Demo project for Spring Boot</description>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+		<repository>
+			<id>nexus-aliyun</id>
+			<name>Nexus aliyun</name>
+			<layout>default</layout>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<!--统一管理依赖版本-->
+	<properties>
+		<java.version>1.8</java.version>
+		<!--2、设置SpringCloud的版本-->
+		<spring-cloud.version>Hoxton.M3</spring-cloud.version>
+		<!--通用mapper-->
+		<mapper.version>2.1.5</mapper.version>
+		<!--JDBC驱动版本-->
+		<mysql.version>5.1.38</mysql.version>
+		<!--连接池-->
+		<druid.version>1.1.10</druid.version>
+		<!--分页插件-->
+		<pagehelper.version>1.2.10</pagehelper.version>
+		<!--HTML文档解析-->
+		<jsoup.version>1.12.1</jsoup.version>
+		<!--文件上传-->
+		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+		<!--IO工具包-->
+		<commons.io.version>2.4</commons.io.version>
+		<!--JSON解析-->
+		<fastjson.version>1.2.62</fastjson.version>
+		<!--SpringMVC JSON注解支持-->
+		<jackson.version>2.9.6</jackson.version>
+	</properties>
+	<!--选择性继承-->
+	<dependencyManagement>
+		<dependencies>
+			<!--SpringCloud依赖版本管理-->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<!--通用Mapper-->
+			<dependency>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper-spring-boot-starter</artifactId>
+				<version>${mapper.version}</version>
+			</dependency>
+			<!--mysql jdbc驱动 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			<!-- Druid连接池 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<!--分页插件-->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>
+			<!--html文档解析-->
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
+			</dependency>
+			<!--springmvc文件上传-->
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${commons.fileupload.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons.io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+		</dependencies>
+
+	</dependencyManagement>
+	<!--dependencies标签如果在父模块那么它管理的所有依赖会被强制继承-->
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!--日志依赖-->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

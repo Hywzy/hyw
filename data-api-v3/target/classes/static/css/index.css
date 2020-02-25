@@ -1,0 +1,19 @@
+.content{
+    padding-top: 150px;
+}
+
+
+
+
+#list ul{
+    float: left;
+
+    width: 505px;
+
+    position: absolute;
+    z-index: 100;
+}
+
+.container .keywords{
+    height: 46px !important;
+}

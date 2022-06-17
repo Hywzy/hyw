@@ -60,7 +60,7 @@
 		<!--IO工具包-->
 		<commons.io.version>2.4</commons.io.version>
 		<!--JSON解析-->
-		<fastjson.version>1.2.62</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<!--SpringMVC JSON注解支持-->
 		<jackson.version>2.9.6</jackson.version>
 	</properties>

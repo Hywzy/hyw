@@ -48,7 +48,7 @@
 		<!--通用mapper-->
 		<mapper.version>2.1.5</mapper.version>
 		<!--JDBC驱动版本-->
-		<mysql.version>5.1.38</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 		<!--连接池-->
 		<druid.version>1.1.10</druid.version>
 		<!--分页插件-->

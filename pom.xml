@@ -62,7 +62,7 @@
 		<!--JSON解析-->
 		<fastjson.version>1.2.62</fastjson.version>
 		<!--SpringMVC JSON注解支持-->
-		<jackson.version>2.9.6</jackson.version>
+		<jackson.version>2.12.6.1</jackson.version>
 	</properties>
 	<!--选择性继承-->
 	<dependencyManagement>
